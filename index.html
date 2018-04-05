@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Etch A Sketch</title>
+
+</head>
+
+<body>
+
+	<div id="container"></div>
+
+
+	<script type="text/javascript">
+	
+	const container = document.querySelector("#container");
+
+	container.setAttribute("style", "display: grid; gridTemplateColumns: 2fr ,2fr ; backgroundColor: blue;");
+
+	const div = document.createElement('div');
+	div.className = "item";
+
+	container.appendChild(div);
+
+	</script>
+
+
+</body>
+
+</html>
