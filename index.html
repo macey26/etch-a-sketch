@@ -17,12 +17,20 @@
 	
 	const container = document.querySelector("#container");
 
+	container.classList.add("#container")
+
 	container.setAttribute("style", "display: grid; gridTemplateColumns: 2fr ,2fr ; backgroundColor: blue;");
 
-	const div = document.createElement('div');
-	div.className = "item";
+	
 
-	container.appendChild(div);
+	for (let i = 0; i < 16; i++){
+
+		const div = document.createElement('div');
+	    div.className.add("item");
+        div.textContent = "im a div";
+	    container.appendChild(div);
+
+	}
 
 	</script>
 
