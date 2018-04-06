@@ -9,7 +9,10 @@
 	<style type="text/css">
 	
 	#container{
-      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 20px;
+      grid-gap: 1px;
 
 	}
 
@@ -25,27 +28,23 @@
 	<script type="text/javascript">
 	
 	const container = document.querySelector("#container");
-
 	
-
-	//container.setAttribute("style", "display: grid; gridTemplateColumns: 2fr ,2fr ; backgroundColor: blue;");
+    
   let squares = 16;
 
-	const makeGrid = () =>{
+	const makeGrid = () => {
 		
-
 		for (let i = 0; i < (squares*squares); i++){
 
 		const box = document.createElement('div');
 	    box.classList.add("item");
-	    box.setAttribute("style", "backgroundColor:red; width:16px; height: 16px;");
-        box.textContent = "im a div";
+	    box.setAttribute("style", "background:red; width:20px; height: 20px;");
+    
 	    container.appendChild(box);
-
 	}
 };
 
-	
+	makeGrid();
 
 	</script>
 
