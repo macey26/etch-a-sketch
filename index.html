@@ -6,6 +6,15 @@
 
 	<title>Etch A Sketch</title>
 
+	<style type="text/css">
+	
+	#container{
+      width: 100%;
+
+	}
+
+	</style>
+
 </head>
 
 <body>
@@ -17,20 +26,26 @@
 	
 	const container = document.querySelector("#container");
 
-	container.classList.add("#container")
-
-	container.setAttribute("style", "display: grid; gridTemplateColumns: 2fr ,2fr ; backgroundColor: blue;");
-
 	
 
-	for (let i = 0; i < 16; i++){
+	//container.setAttribute("style", "display: grid; gridTemplateColumns: 2fr ,2fr ; backgroundColor: blue;");
+  let squares = 16;
 
-		const div = document.createElement('div');
-	    div.className.add("item");
-        div.textContent = "im a div";
-	    container.appendChild(div);
+	const makeGrid = () =>{
+		
+
+		for (let i = 0; i < (squares*squares); i++){
+
+		const box = document.createElement('div');
+	    box.classList.add("item");
+	    box.setAttribute("style", "backgroundColor:red; width:16px; height: 16px;");
+        box.textContent = "im a div";
+	    container.appendChild(box);
 
 	}
+};
+
+	
 
 	</script>
 
