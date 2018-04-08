@@ -8,31 +8,64 @@
 
 	<style type="text/css">
 	
+	  body{
+    margin: 0;
+    padding: 0;
+    
+    }
+
+  #tablet{
+    width: 900px;
+    height: 700px;
+    margin: auto;
+    background: springgreen;
+
+    }
+
 	#container{
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows:  repeat(12, 1fr);
       grid-gap: 3px;
-
+      max-width: 600px;
+      max-height: 600px;
 	}
+
+
 
 	</style>
 
 </head>
 
 <body>
+	<div id="tablet">
 
-	<div id="container"></div>
+		<button  onclick="clearGrid()"> Reset Grid</button>
+		<button onclick="userPlay()"> resize grid</button>
+
+	  <div id="container"></div>
+
+    </div>
 
 
 	<script type="text/javascript">
+
+	let clearGrid = () =>{
+
+	location.reload();
+     };
+
+	let userPlay = () => {
+	  let squares = prompt("How squares should your grid have?");
+	  return squares;
+     };
+	
+//let squares = 16;
+
 	
 	const container = document.querySelector("#container");
 
-
-	
-    
-  let squares = 16;
+  
 
 	const makeGrid = () => {
 		
@@ -40,32 +73,30 @@
 
 		const box = document.createElement('div');
 	    box.classList.add("item");
-	    box.setAttribute("style", "background:red; height:50px; width: auto; ");
+	    box.setAttribute("style", "background:red; height:30px; width: auto; ");
 
-    const hover = document.querySelectorAll('.item');
-	hover.forEach((hover) =>{
-
-		  hover.addEventListener('mouseover', (e) => {
-          hover.setAttribute("style", "background:blue; height:50px; width: auto; ");
-          
-	       });
-
-
-	});
-	    container.appendChild(box);
+ container.appendChild(box);
 
 	}
 };
 
+makeGrid();
 
+const boxHover = () => {
+    const hover = document.querySelectorAll('.item');
+	hover.forEach((hover) =>{
 
+    hover.addEventListener('mouseover', (e) => {
+    hover.setAttribute("style", "background:blue; height:30px; width: auto; ");
 
+	       });
 
+	});
+	   
 
+};
 
-
-
-	makeGrid();
+boxHover();
 
 	</script>
 
