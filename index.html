@@ -40,8 +40,8 @@
 <body>
 	<div id="tablet">
 
-		<button  onclick="clearGrid()"> Reset Grid</button>
-		<button onclick="userPlay()"> resize grid</button>
+		<button  onclick="resetGrid()"> Reset Grid</button>
+		<button onclick="gridResize()"> resize grid</button>
 
 	  <div id="container"></div>
 
@@ -50,37 +50,37 @@
 
 	<script type="text/javascript">
 
-	let clearGrid = () =>{
+	
+
+	let resetGrid = () =>{
 
 	location.reload();
      };
 
-	let userPlay = () => {
-	  let squares = prompt("How squares should your grid have?");
-	  return squares;
-     };
-	
-//let squares = 16;
 
+	let gridResize = () => {
+	  let square = prompt("How squares would you like on each grid side", 16);
+	  	  resetGrid();
+	  	   makeGrid(squares);
+     };
 	
 	const container = document.querySelector("#container");
 
-  
+	const makeGrid = (squares) => {
 
-	const makeGrid = () => {
-		
 		for (let i = 0; i < (squares*squares); i++){
 
 		const box = document.createElement('div');
 	    box.classList.add("item");
 	    box.setAttribute("style", "background:red; height:30px; width: auto; ");
 
- container.appendChild(box);
+        container.appendChild(box);
 
 	}
+
 };
 
-makeGrid();
+makeGrid(16);
 
 const boxHover = () => {
     const hover = document.querySelectorAll('.item');
@@ -93,10 +93,10 @@ const boxHover = () => {
 
 	});
 	   
-
 };
 
 boxHover();
+
 
 	</script>
 
