@@ -17,18 +17,17 @@
   #tablet{
     width: 900px;
     height: 700px;
-    margin: auto;
+    margin: 0 auto;
     background: springgreen;
 
     }
 
 	#container{
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows:  repeat(12, 1fr);
-      grid-gap: 3px;
-      max-width: 600px;
-      max-height: 600px;
+      grid-gap: 1px;
+     width: 600px;
+      height: 400px;
+       margin: 0 auto;
 	}
 
 
@@ -40,8 +39,7 @@
 <body>
 	<div id="tablet">
 
-		<button  onclick="resetGrid()"> Reset Grid</button>
-		<button onclick="gridResize()"> resize grid</button>
+		<button onclick="gridResize()" "> Resize grid</button>
 
 	  <div id="container"></div>
 
@@ -49,36 +47,46 @@
 
 
 	<script type="text/javascript">
+    
 
-	
+	const container = document.querySelector("#container");
+
 
 	let resetGrid = () =>{
 
 	location.reload();
-     };
+   };
 
 
 	let gridResize = () => {
-	  let square = prompt("How squares would you like on each grid side", 16);
-	  	  resetGrid();
-	  	   makeGrid(squares);
+
+	   let square = prompt("How many squares would you like on each grid side", 16);
+        squares = square;
+          container.setAttribute("style",
+`grid-template-columns: repeat(${square}, 1fr); grid-template-rows: repeat(${square}, 1fr);`);
+
+	   resetGrid();
+	    makeGrid(squares);
+
      };
-	
-	const container = document.querySelector("#container");
 
 	const makeGrid = (squares) => {
 
-		for (let i = 0; i < (squares*squares); i++){
+		for (let i = 0; i < squares*squares ; i++){
 
+		
 		const box = document.createElement('div');
 	    box.classList.add("item");
-	    box.setAttribute("style", "background:red; height:30px; width: auto; ");
+	    box.setAttribute("style", "background:red; height:16px; width: 0 auto; ");
+	    container.setAttribute("style",
+`grid-template-columns: repeat(${squares}, 1fr); grid-template-rows: repeat(${squares}, 1fr);`);
 
         container.appendChild(box);
 
 	}
 
 };
+
 
 makeGrid(16);
 
@@ -87,7 +95,7 @@ const boxHover = () => {
 	hover.forEach((hover) =>{
 
     hover.addEventListener('mouseover', (e) => {
-    hover.setAttribute("style", "background:blue; height:30px; width: auto; ");
+    hover.setAttribute("style", "background:blue; height:16px; width: 0 auto; ");
 
 	       });
 
@@ -96,7 +104,6 @@ const boxHover = () => {
 };
 
 boxHover();
-
 
 	</script>
 
