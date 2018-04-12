@@ -6,30 +6,53 @@
 
 	<title>Etch A Sketch</title>
 
+	<link href="https://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet">
+
 	<style type="text/css">
 	
 	  body{
     margin: 0;
     padding: 0;
+    font-family: 'Henny Penny', cursive;
     
     }
 
   #tablet{
-    width: 900px;
-    height: 700px;
+    width: 800px;
+    height: 600px;
     margin: 0 auto;
-    background: springgreen;
-
+    background: #1ce61c;
+    border-radius: 12px;
+    position: relative;
+    top: 15px;
+    box-shadow: 10px 10px 5px 0px rgba(51,47,51,1);
+    border: 2px outset rgba(0,0,0,0.75);
     }
 
 	#container{
       display: grid;
-      grid-gap: 1px;
-     width: 600px;
+      grid-gap: 0;
+      max-width: 600px;
       height: 400px;
-       margin: 0 auto;
-	}
+      margin: 0 auto;
+      position: relative;
+      top: -60px;
+      box-shadow: inset 4px 6px 5px 0px rgba(0,0,0,0.75);
+      border: 3px inset grey;
+      }
 
+      h1{
+      	text-align: center;
+      	color: #ff00bf;
+      	font-size: 300%;
+      	text-shadow:inset 4px 6px 5px 0px rgba(0,0,0,0.75);
+      	position: relative;
+      	top:-20px;
+      }
+
+      p{
+      	color: #ff00bf;
+      	font-size: 200%;
 
 
 	</style>
@@ -39,10 +62,17 @@
 <body>
 	<div id="tablet">
 
-		<button onclick="gridResize()" "> Resize grid</button>
+		<h1>Etch A Sketch</h1>
+
+		
 
 	  <div id="container"></div>
 
+	  <button onclick="gridResize()"> Resize grid</button>
+
+	  <button onclick="rainbowColor()"> Random Color</button>
+
+	
     </div>
 
 
@@ -53,8 +83,11 @@
 
 
 	let resetGrid = () =>{
+       while(container.hasChildNodes()){
+       	   container.removeChild(container.lastChild);
+       }
+       makeGrid(squares);
 
-	location.reload();
    };
 
 
@@ -62,11 +95,13 @@
 
 	   let square = prompt("How many squares would you like on each grid side", 16);
         squares = square;
-          container.setAttribute("style",
+        container.setAttribute("style",
 `grid-template-columns: repeat(${square}, 1fr); grid-template-rows: repeat(${square}, 1fr);`);
 
-	   resetGrid();
+	    resetGrid();
 	    makeGrid(squares);
+	    boxHover();
+	    rainbowColor();
 
      };
 
@@ -77,7 +112,7 @@
 		
 		const box = document.createElement('div');
 	    box.classList.add("item");
-	    box.setAttribute("style", "background:red; height:16px; width: 0 auto; ");
+	    box.setAttribute("style", "background:white;");
 	    container.setAttribute("style",
 `grid-template-columns: repeat(${squares}, 1fr); grid-template-rows: repeat(${squares}, 1fr);`);
 
@@ -87,7 +122,6 @@
 
 };
 
-
 makeGrid(16);
 
 const boxHover = () => {
@@ -95,7 +129,7 @@ const boxHover = () => {
 	hover.forEach((hover) =>{
 
     hover.addEventListener('mouseover', (e) => {
-    hover.setAttribute("style", "background:blue; height:16px; width: 0 auto; ");
+    hover.setAttribute("style", "background:black;");
 
 	       });
 
@@ -103,6 +137,37 @@ const boxHover = () => {
 	   
 };
 
+const randomColor = () =>{
+   
+   let colors = {
+   	   0: "red",
+   	   1: "orange",
+   	   2: "yellow",
+   	   3: "green",
+   	   4: "blue",
+   	   5: "indigo"
+   };
+
+   return colors [Math.floor(Math.random() * 7)];
+
+   console.log(randomColor());
+
+}
+
+const rainbowColor = () => {
+    const rainbow = document.querySelectorAll('.item');
+	rainbow.forEach((rainbow) =>{
+
+    rainbow.addEventListener('mouseover', (e) => {
+    rainbow.style.backgroundColor = randomColor();
+
+	       });
+
+	});
+	   
+};
+
+rainbowColor();
 boxHover();
 
 	</script>
