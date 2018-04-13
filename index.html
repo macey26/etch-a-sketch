@@ -8,54 +8,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Henny+Penny" rel="stylesheet">
 
-	<style type="text/css">
-	
-	  body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Henny Penny', cursive;
-    
-    }
-
-  #tablet{
-    width: 800px;
-    height: 600px;
-    margin: 0 auto;
-    background: #1ce61c;
-    border-radius: 12px;
-    position: relative;
-    top: 15px;
-    box-shadow: 10px 10px 5px 0px rgba(51,47,51,1);
-    border: 2px outset rgba(0,0,0,0.75);
-    }
-
-	#container{
-      display: grid;
-      grid-gap: 0;
-      max-width: 600px;
-      height: 400px;
-      margin: 0 auto;
-      position: relative;
-      top: -60px;
-      box-shadow: inset 4px 6px 5px 0px rgba(0,0,0,0.75);
-      border: 3px inset grey;
-      }
-
-      h1{
-      	text-align: center;
-      	color: #ff00bf;
-      	font-size: 300%;
-      	text-shadow:inset 4px 6px 5px 0px rgba(0,0,0,0.75);
-      	position: relative;
-      	top:-20px;
-      }
-
-      p{
-      	color: #ff00bf;
-      	font-size: 200%;
-
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
@@ -68,109 +21,14 @@
 
 	  <div id="container"></div>
 
-	  <button onclick="gridResize()"> Resize grid</button>
+	  <button onclick="gridResize()" id='resizeBtn'> Resize <br> grid</button>
 
-	  <button onclick="rainbowColor()"> Random Color</button>
+	  <button onclick="rainbowColor()" id="rainbowBtn"> Rainbow <br>  Color</button>
 
-	
     </div>
 
 
-	<script type="text/javascript">
-    
-
-	const container = document.querySelector("#container");
-
-
-	let resetGrid = () =>{
-       while(container.hasChildNodes()){
-       	   container.removeChild(container.lastChild);
-       }
-       makeGrid(squares);
-
-   };
-
-
-	let gridResize = () => {
-
-	   let square = prompt("How many squares would you like on each grid side", 16);
-        squares = square;
-        container.setAttribute("style",
-`grid-template-columns: repeat(${square}, 1fr); grid-template-rows: repeat(${square}, 1fr);`);
-
-	    resetGrid();
-	    makeGrid(squares);
-	    boxHover();
-	    rainbowColor();
-
-     };
-
-	const makeGrid = (squares) => {
-
-		for (let i = 0; i < squares*squares ; i++){
-
-		
-		const box = document.createElement('div');
-	    box.classList.add("item");
-	    box.setAttribute("style", "background:white;");
-	    container.setAttribute("style",
-`grid-template-columns: repeat(${squares}, 1fr); grid-template-rows: repeat(${squares}, 1fr);`);
-
-        container.appendChild(box);
-
-	}
-
-};
-
-makeGrid(16);
-
-const boxHover = () => {
-    const hover = document.querySelectorAll('.item');
-	hover.forEach((hover) =>{
-
-    hover.addEventListener('mouseover', (e) => {
-    hover.setAttribute("style", "background:black;");
-
-	       });
-
-	});
-	   
-};
-
-const randomColor = () =>{
-   
-   let colors = {
-   	   0: "red",
-   	   1: "orange",
-   	   2: "yellow",
-   	   3: "green",
-   	   4: "blue",
-   	   5: "indigo"
-   };
-
-   return colors [Math.floor(Math.random() * 7)];
-
-   console.log(randomColor());
-
-}
-
-const rainbowColor = () => {
-    const rainbow = document.querySelectorAll('.item');
-	rainbow.forEach((rainbow) =>{
-
-    rainbow.addEventListener('mouseover', (e) => {
-    rainbow.style.backgroundColor = randomColor();
-
-	       });
-
-	});
-	   
-};
-
-rainbowColor();
-boxHover();
-
-	</script>
+	<script type="text/javascript" src="script.js">	</script>
 
 
 </body>

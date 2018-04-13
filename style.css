@@ -1,0 +1,68 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Henny Penny', cursive;
+}
+
+#tablet{
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background: #1ce61c;
+  border-radius: 12px;
+  position: relative;
+  top: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(51,47,51,1);
+  border: 2px outset rgba(0,0,0,0.75);
+}
+
+#container{
+  display: grid;
+  grid-gap: 0;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  top: -60px;
+  box-shadow: inset 4px 6px 5px 0px rgba(0,0,0,0.75);
+  border: 3px inset grey;
+}
+
+h1{
+  text-align: center;
+  color: #ff00bf;
+  font-size: 300%;
+  text-shadow:inset 4px 6px 5px 0px rgba(0,0,0,0.75);
+  position: relative;
+  top:-20px;
+}
+
+#resizeBtn{
+	background: #ff00bf;
+	height: 100px;
+  width: 100px;
+	border-radius: 50%;
+	box-shadow: 6px 6px 5px 0px rgba(51,47,51,1);
+  border: 2px outset rgba(0,0,0,0.75);
+	font-family: 'Henny Penny', cursive;
+	font-size: 120%;
+	color: white;
+	position: relative;
+	top: -58px;
+	left: 55px;
+}	
+
+#rainbowBtn{
+  background: #ff00bf;
+	height: 100px;
+  width: 100px;
+	border-radius: 50%;
+	box-shadow: 6px 6px 5px 0px rgba(51,47,51,1);
+  border: 2px outset rgba(0,0,0,0.75);
+	font-family: 'Henny Penny', cursive;
+	font-size: 120%;
+	color: white;
+	position: relative;
+	top: -58px;
+	left: 545px;
+}
